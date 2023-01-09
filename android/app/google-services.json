@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "528008030091",
+    "project_id": "my-local-market-5a9ac",
+    "storage_bucket": "my-local-market-5a9ac.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:528008030091:android:41708f2e29f3dfcfa0318e",
+        "android_client_info": {
+          "package_name": "com.redwater.my_local_market"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "528008030091-bs6foh30259plvkeuvgau8dnirh4128s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDanywUlpRBHAQQQqo2qByo6-e6m-tEIQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "528008030091-bs6foh30259plvkeuvgau8dnirh4128s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
