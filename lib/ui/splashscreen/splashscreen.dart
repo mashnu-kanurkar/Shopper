@@ -5,7 +5,6 @@ import 'package:my_local_market/components/button.dart';
 import 'package:my_local_market/components/snackbar.dart';
 import 'package:my_local_market/ui/homepage/homepage.dart';
 import 'package:my_local_market/ui/loginscreen/LoginWelcomeScreen.dart';
-import 'package:my_local_market/ui/loginscreen/login_base_screen.dart';
 import 'package:my_local_market/values/strings.dart';
 
 class Splashscreen extends StatefulWidget {
@@ -22,7 +21,7 @@ class _SplashscreenState extends State<Splashscreen> {
   initState() {
     getButtonText();
     super.initState();
-    Future.delayed(const Duration(milliseconds: 5* 1000), (){
+    Future.delayed(const Duration(milliseconds: 2* 1000), (){
       goToNextScreen();
     });
   }
@@ -32,7 +31,7 @@ class _SplashscreenState extends State<Splashscreen> {
     return Scaffold(
         body: Container(
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage("assets/images/bird.png"),
           fit: BoxFit.cover,
@@ -43,15 +42,17 @@ class _SplashscreenState extends State<Splashscreen> {
   }
 
   void goToNextScreen(){
+    //Navigator.pushNamed(context, '/${ScreenName.testWidget}');
+    //return;
     if(_buttonText == AppStrings.login){
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>LoginWelcomeScreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const LoginWelcomeScreen()));
     }else {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const HomePage()));
     }
   }
 
   Future<String> getButtonText() async {
-    if(Firebase.apps.length == 0){
+    if(Firebase.apps.isEmpty){
       await Firebase.initializeApp();
     }
     User? user = FirebaseAuth.instance.currentUser;

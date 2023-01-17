@@ -25,20 +25,36 @@ class RwButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: enabled ? onPressed : null,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: enabled? null : Colors.grey,
-        shape: RoundedRectangleBorder(
-          //to set border radius to button
-          borderRadius: BorderRadius.circular(Constants.btn_border_radius),
-        ),
-        padding: const EdgeInsets.all(Constants.btn_text_padding),
-        minimumSize: widthMatchParent ? Size(double.infinity, height) : null,
+    return Container(
+      decoration: const BoxDecoration(
+        //color: Colors.transparent,
+        //borderRadius: BorderRadius.all(Radius.circular(16.0)),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black38,
+            blurRadius: 16.0,
+            //offset: Offset(8.0, 8.0),
+            blurStyle: BlurStyle.normal,
+          )
+        ]
       ),
-      child: RwText(
-        text: text,
-        textStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: Colors.white),
+      child: ElevatedButton(
+        onPressed: enabled ? onPressed : null,
+        style: ElevatedButton.styleFrom(
+          disabledBackgroundColor: WidgetColors.disabled_button,
+          //backgroundColor: enabled? null : Colors.blueGrey,
+          shape: RoundedRectangleBorder(
+            //to set border radius to button
+            borderRadius: BorderRadius.circular(Constants.btn_border_radius),
+          ),
+          padding: const EdgeInsets.all(Constants.btn_text_padding),
+          minimumSize: widthMatchParent ? Size(double.infinity, height) : null,
+        ),
+        child: RwText(
+          color: enabled ? WidgetColors.enabled_button_text : WidgetColors.disabled_button_text,
+          text: text,
+          textStyle: Theme.of(context).textTheme.bodyText2?.copyWith(color: Colors.white),
+        ),
       ),
     );
   }
@@ -81,7 +97,7 @@ class _RwRadioGroupState extends State<RwRadioGroup> {
   Widget getRadioButtons(RwOrientation orientation) {
     if (orientation == RwOrientation.VERTICAL) {
       return Container(
-        padding: Constants.base_padding,
+        padding: const EdgeInsets.all(Constants.base_padding),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.teal),
           shape: BoxShape.rectangle,
@@ -94,7 +110,7 @@ class _RwRadioGroupState extends State<RwRadioGroup> {
       );
     } else {
       return Container(
-        padding: Constants.base_padding,
+        padding: const EdgeInsets.all(Constants.base_padding),
         decoration: BoxDecoration(
           border: Border.all(color: Colors.teal),
           shape: BoxShape.rectangle,

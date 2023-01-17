@@ -4,6 +4,13 @@ class LoginListener{
 
 }
 
+class AnonymousLoginListener extends LoginListener{
+  onAnonymousSignInCompleted(UserCredential userCredential){
+  }
+  onAnonymousSignInFailed(FirebaseAuthException firebaseAuthException){
+  }
+}
+
 class PhoneLoginStateListener extends LoginListener {
   verificationCompleted (PhoneAuthCredential phoneAuthCredential) {
     // TODO: implement verificationCompleted
@@ -23,8 +30,9 @@ class PhoneLoginStateListener extends LoginListener {
   }
 }
 
+
 class EmailLoginStateListener extends LoginListener {
-  onUserEmailAlreadyExist(String email, bool canSignInWithPassword, bool canSignInWithLink) {
+  onUserEmailExist(String email, bool canSignInWithPassword, bool canSignInWithLink) {
     // TODO: implement onUserEmailAlreadyExist
     throw UnimplementedError();
   }

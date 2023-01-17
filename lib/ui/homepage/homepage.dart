@@ -1,5 +1,8 @@
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+import 'package:my_local_market/navigator/navigator.dart';
 import 'package:my_local_market/values/strings.dart';
 
 class HomePage extends StatefulWidget {
@@ -22,6 +25,24 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _counter = 0;
+  @override
+  void initState() {
+    print("Init state of home page");
+    super.initState();
+    // SchedulerBinding.instance.addPostFrameCallback((_){
+    //   User? user = FirebaseAuth.instance.currentUser;
+    //   if(user != null && (user.displayName == null || user.displayName ==""
+    //       ||user.phoneNumber == null || user.phoneNumber == ""
+    //       || user.email == null || user.email ==""
+    //   || user.isAnonymous )){
+    //     RwNavigator.next(context: context, sourceScreen: ScreenName.homeScreen, destination: ScreenName.userProfileScreen);
+    //   }
+    //   print("User: $user");
+    //   print("display name is null: ${user?.displayName == null}");
+    // });
+  }
+
+
 
   void _incrementCounter() {
     setState(() {
@@ -36,6 +57,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    print("build state of home page");
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -52,20 +74,6 @@ class _HomePageState extends State<HomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
